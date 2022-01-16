@@ -5,10 +5,11 @@
   "main": "server",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "start": "node server",
-    "server": "nodemon server"
+
+    "start": "ts-node-dev server",
+    "server": "ts-node-dev server",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
