@@ -3,7 +3,7 @@ import { FC, Fragment, useState } from "react"
 import { Menu, Transition } from '@headlessui/react'
 import { AiOutlineAppstoreAdd,} from 'react-icons/ai'
 import { IoIosArrowDown} from 'react-icons/io'
-import { technology } from "configs/static"
+import { technology } from "@configs/static"
 import Image from 'next/image'
 import {BsBootstrap, BsGoogle} from 'react-icons/bs'
 import {ImFacebook, ImParagraphLeft} from 'react-icons/im'

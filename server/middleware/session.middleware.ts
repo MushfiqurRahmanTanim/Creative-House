@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import session from 'express-session';
+import session,{ SessionOptions } from 'express-session';
+import connectMongo from "connect-mongo";
 
 const sessionMiddleware =(req:Request, res:Response, next:NextFunction) => {
 
@@ -7,6 +8,10 @@ const sessionMiddleware =(req:Request, res:Response, next:NextFunction) => {
         secret: 'keyboard cat',
         resave:false,
         saveUninitialized:true,
+        store:connectMongo.create({
+              mongoUrl:"mongodb://localhost:27017/creative-house"
+        })
+        
        })(req, res, next);
 }
 

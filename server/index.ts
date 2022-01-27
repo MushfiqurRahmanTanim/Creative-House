@@ -1,12 +1,15 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import authRoutes from './routes/auth.routes';
+;
 
 
 import sessionMiddleware from './middleware/session.middleware';
 
 import connectDB from './configs/connectDB';
 import { errorMiddleware } from './middleware/error.middleware';
+import passport from './middleware/passport.middleware'
 
 
 
@@ -24,8 +27,8 @@ connectDB();
 //Bypassing CORS
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
-    credentials: true,
+    origin: 'http://localhost:3000',
+    credentials:true
   })
 );
 //Middleware
@@ -33,9 +36,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(sessionMiddleware);
+app.use(passport.session())
+app.use(passport.initialize())
 
-app.get('/api/demo', (req, res) => {
-  res.json({ sessionId: req.sessionID });
+app.use("/api/auth", authRoutes);
+
+app.get('/', (req, res) => {
+  res.send('Hello World');
+ 
 });
 
 // // Routes

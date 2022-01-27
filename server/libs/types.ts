@@ -10,6 +10,7 @@ export interface ExtendedRequest extends Request {
 
 export interface IUser{ 
   _id: mongoose_id;
+  username: string;
   name: string,
   email: string,
   password: string,

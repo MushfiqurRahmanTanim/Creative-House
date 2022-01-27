@@ -1,16 +1,21 @@
 
+import { attemptLogin } from '@features/auth/authActions';
 import Head from 'next/head';
 import Link from 'next/link';
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
+import { any } from 'zod';
 
 type handleClick ={
    ModalHandler:()=>void
 
 }
+interface loginHandler {
+   attemptLogin: () => void;
+}
 const LoginForm:FC<handleClick> = ({ModalHandler}:handleClick) => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   
   const {
     handleSubmit,
@@ -18,9 +23,10 @@ const LoginForm:FC<handleClick> = ({ModalHandler}:handleClick) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = data => {
-    
-  };
+  const onSubmit = (data:any)=> {
+    dispatch(attemptLogin(data));
+  }
+  
 
   return (
    

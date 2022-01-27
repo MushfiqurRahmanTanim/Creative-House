@@ -1,6 +1,6 @@
 
 
-import { ExtendedRequest } from "@libs/types";
+
 import { NextFunction, Request, Response,Express} from "express";
 import { z } from 'zod';
 

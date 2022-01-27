@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Image from "next/image"
+// @ts-ignore
 import  Fade  from "react-reveal"
 
 

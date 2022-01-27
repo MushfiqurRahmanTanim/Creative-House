@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
-import { IUser } from '@libs/types';
+import { IUser } from '../libs/types';
+
 
 
 const userSchema = new mongoose.Schema<IUser>(
@@ -9,6 +10,7 @@ const userSchema = new mongoose.Schema<IUser>(
       type: String,
       required: true,
     },
+      
     email: {
       type: String,
       unique: true,
